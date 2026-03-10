@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --gold:      #FFD700;
+  --gold-dark: #B8960A;
+  --gold-light:#FFF9CC;
+  --pink:      #FF2D78;
+  --pink-dark: #AA0040;
+  --pink-light:#FFE5EE;
+  --cyan:      #00C4B4;
+  --cyan-dark: #007A6A;
+  --cyan-light:#E0FBF8;
+  --coral:     #FF6B35;
+  --coral-dark:#AA3800;
+  --coral-light:#FFF0EA;
+  --blue:      #2B7FFF;
+  --blue-dark: #1A5FCC;
+  --blue-light: #E8F1FF;
+  --violet:    #7C3AFF;
+  --violet-dark:#4A14BB;
+  --violet-light:#F0EBFF;
+  --ink:       #0A0A0A;
+  --ink-60:    rgba(10,10,10,.6);
+  --ink-30:    rgba(10,10,10,.3);
+  --white:     #FFFFFF;
+  --cream:     #FFFEF5;
+  --gray-50:   #F7F7F5;
+  --ff-display:'Fredoka', sans-serif;
+  --ff-body:   'Space Grotesk', sans-serif;
+
+  /* Spacing scale */
+  --section-pad: clamp(5rem, 8vw, 9rem);
+  --section-pad-sm: clamp(3rem, 5vw, 5rem);
+
+  /* Container */
+  --max-w: 1180px;
+  --max-w-md: 900px;
+  --max-w-sm: 720px;
+}
+
+html { scroll-behavior: smooth; background: var(--white); }
+body {
+  font-family: var(--ff-body);
+  background: var(--white);
+  color: var(--ink);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.display { font-family: var(--ff-display); }
+
+/* ── CONTAINER ─────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.container-md { max-width: var(--max-w-md); }
+.container-sm { max-width: var(--max-w-sm); }
+
+/* ── SECTION HEADER (overline + headline + subhead) ────── */
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.section-overline {
+  display: inline-block;
+  font-family: var(--ff-display);
+  font-size: .84rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-30);
+  margin-bottom: .875rem;
+}
+
+/* ── BUTTONS — cartoon press effect ────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-family: var(--ff-display); font-weight: 700; font-size: 1.05rem;
+  padding: 0 2rem; height: 54px; border-radius: 999px; cursor: pointer;
+  border: 3px solid var(--ink); position: relative; top: 0;
+  transition: top .1s ease, box-shadow .1s ease;
+  white-space: nowrap; text-decoration: none;
+  letter-spacing: .01em;
+}
+.btn-gold   { background: var(--gold);   color: var(--ink);  box-shadow: 0 5px 0 var(--gold-dark); }
+.btn-pink   { background: var(--pink);   color: #fff;        box-shadow: 0 5px 0 var(--pink-dark); }
+.btn-cyan   { background: var(--cyan);   color: var(--ink);  box-shadow: 0 5px 0 var(--cyan-dark); }
+.btn-coral  { background: var(--coral);  color: #fff;        box-shadow: 0 5px 0 var(--coral-dark);}
+.btn-violet { background: var(--violet); color: #fff;        box-shadow: 0 5px 0 var(--violet-dark);}
+.btn-white  { background: #fff;          color: var(--ink);  box-shadow: 0 5px 0 #c0c0c0; }
+.btn-outline{
+  background: transparent; color: var(--ink);
+  border-color: var(--ink);
+  box-shadow: 0 5px 0 rgba(0,0,0,.18);
+}
+
+.btn:hover  { top: 3px; }
+.btn-gold:hover   { box-shadow: 0 2px 0 var(--gold-dark); }
+.btn-pink:hover   { box-shadow: 0 2px 0 var(--pink-dark); }
+.btn-cyan:hover   { box-shadow: 0 2px 0 var(--cyan-dark); }
+.btn-coral:hover  { box-shadow: 0 2px 0 var(--coral-dark); }
+.btn-violet:hover { box-shadow: 0 2px 0 var(--violet-dark); }
+.btn-white:hover  { box-shadow: 0 2px 0 #c0c0c0; }
+.btn-outline:hover{ box-shadow: 0 2px 0 rgba(0,0,0,.18); }
+.btn:active { top: 5px; box-shadow: none !important; }
+
+/* Button size variants */
+.btn-sm { height: 44px; font-size: .9rem; padding: 0 1.375rem; }
+.btn-lg { height: 62px; font-size: 1.15rem; padding: 0 2.75rem; }
+
+/* ── CARDS ──────────────────────────────────────────────── */
+.card {
+  border-radius: 1.5rem;
+  background: #fff;
+  border: 3px solid var(--ink);
+}
+.card-gold   { box-shadow: 6px 6px 0 var(--gold-dark);   border-color: var(--ink); background: var(--gold-light); }
+.card-pink   { box-shadow: 6px 6px 0 var(--pink-dark);   border-color: var(--ink); background: var(--pink-light); }
+.card-cyan   { box-shadow: 6px 6px 0 var(--cyan-dark);   border-color: var(--ink); background: var(--cyan-light); }
+.card-violet { box-shadow: 6px 6px 0 var(--violet-dark); border-color: var(--ink); background: var(--violet-light);}
+
+/* ── PILL BADGES ────────────────────────────────────────── */
+.pill {
+  display: inline-flex; align-items: center; gap: .375rem;
+  padding: .325rem 1rem; border-radius: 999px; font-weight: 700;
+  font-size: .84rem; text-transform: uppercase; letter-spacing: .1em;
+  border: 2px solid currentColor; font-family: var(--ff-display);
+  line-height: 1;
+}
+.pill-gold   { color: var(--gold-dark);  background: var(--gold-light); }
+.pill-pink   { color: var(--pink);       background: var(--pink-light); }
+.pill-cyan   { color: var(--cyan-dark);  background: var(--cyan-light); }
+.pill-coral  { color: var(--coral-dark); background: var(--coral-light);}
+.pill-violet { color: var(--violet);     background: var(--violet-light);}
+
+/* ── PHONE FRAME ────────────────────────────────────────── */
+.phone-frame {
+  width: 260px; height: 530px; border-radius: 40px;
+  border: 4px solid var(--ink);
+  background: #fff;
+  overflow: hidden; position: relative; flex-shrink: 0;
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+/* ── FLOAT ANIMATION ────────────────────────────────────── */
+@keyframes floatY {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+.float      { animation: floatY 4s ease-in-out infinite; }
+.float-slow { animation: floatY 6s ease-in-out infinite; }
+
+/* ── MARQUEE ─────────────────────────────────────────────
+   Use will-change + backface-visibility for GPU compositing.
+   The marquee track is duplicated in JS (doubled array), so
+   translating -50% loops seamlessly.
+────────────────────────────────────────────────────────── */
+@keyframes marquee    { from { transform: translateX(0); }    to { transform: translateX(-50%); } }
+@keyframes marqueeRev { from { transform: translateX(-50%); } to { transform: translateX(0); }   }
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+.marquee-track--left  { animation: marquee    38s linear infinite; }
+.marquee-track--right { animation: marqueeRev 44s linear infinite; }
+
+/* Pause on hover for accessibility / usability */
+.marquee-row:hover .marquee-track { animation-play-state: paused; }
+
+.marquee-row {
+  overflow: hidden;
+  width: 100%;
+  /* Fade edges */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+}
+
+/* ── SCROLL COLUMNS (vertical marquee) ─────────────────── */
+.scroll-col { display: flex; flex-direction: column; gap: 1rem; }
+.scroll-col-up   { animation: scrollUp   28s linear infinite; }
+.scroll-col-down { animation: scrollDown 32s linear infinite; }
+@keyframes scrollUp   { from{transform:translateY(0)}   to{transform:translateY(-50%)} }
+@keyframes scrollDown { from{transform:translateY(-50%)} to{transform:translateY(0)}   }
+
+/* ── SECTION utility ────────────────────────────────────── */
+section { position: relative; overflow: hidden; }
+
+/* ── DIAGONAL dividers using clip-path ─────────────────── */
+.clip-bottom { clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%); padding-bottom: 8vw !important; }
+.clip-top    { clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%); padding-top: 8vw !important; margin-top: -4vw; }
+.clip-both   { clip-path: polygon(0 4%, 100% 0, 100% 96%, 0 100%); padding: 8vw 0 !important; margin-top: -4vw; }
+
+/* ── PULSE animation for live dot ───────────────────────── */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(1.5); }
+}
+.pulse-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--pink); display: inline-block;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ── DIVIDER LINE ───────────────────────────────────────── */
+.divider {
+  width: 48px; height: 4px; border-radius: 2px;
+  background: var(--ink); opacity: .15;
+  margin: 0 auto;
+}
+.divider--left { margin-left: 0; }
+
+/* ── FOCUS OUTLINE for accessibility ────────────────────── */
+:focus-visible {
+  outline: 3px solid var(--violet);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── SELECTION ──────────────────────────────────────────── */
+::selection { background: var(--gold); color: var(--ink); }
+
+/* ── GLOBAL RESPONSIVE HELPERS ──────────────────────────── */
+@media (max-width: 768px) {
+  :root {
+    --section-pad: clamp(4rem, 10vw, 6rem);
+  }
+  .btn { height: 50px; font-size: 1rem; }
+  .btn-lg { height: 54px; font-size: 1.05rem; padding: 0 2rem; }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-pad: 3.5rem;
+  }
+  .btn { height: 48px; font-size: .95rem; }
+  .btn-lg { height: 52px; font-size: 1rem; padding: 0 1.75rem; }
+  .btn-sm { height: 44px; }
+}
+
+/* Ensure all buttons have minimum 44px tap target (already met by .btn height, extra safety) */
+.btn { touch-action: manipulation; }
+
+/* Safe-area insets for notched phones (iPhone X+) */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  footer {
+    padding-bottom: calc(2.5rem + env(safe-area-inset-bottom));
+  }
+}
+
+/* Prevent horizontal scroll on all sections */
+html, body { max-width: 100%; overflow-x: hidden; }
+
+/* ── MOBILE GLOBAL POLISH ───────────────────────────────── */
+
+/* Remove tap highlight flash on iOS/Android — we use focus-visible instead */
+* { -webkit-tap-highlight-color: transparent; }
+
+/* Smooth momentum scrolling on iOS */
+html { -webkit-overflow-scrolling: touch; }
+
+/* Ensure inputs look native-friendly on mobile */
+@media (max-width: 768px) {
+  /* Prevent iOS zoom on input focus (font-size >= 16px already set globally) */
+  input, select, textarea {
+    font-size: 16px;
+  }
+
+  /* Reduce marquee speed on mobile for better readability */
+  .marquee-track--left  { animation-duration: 28s; }
+  .marquee-track--right { animation-duration: 32s; }
+}
+
+/* Very small screens: make section overlines slightly smaller to save space */
+@media (max-width: 380px) {
+  .section-overline { font-size: .78rem; letter-spacing: .10em; }
+}
