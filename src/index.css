@@ -3,30 +3,49 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --gold:      #FFD700;
-  --gold-dark: #B8960A;
-  --gold-light:#FFF9CC;
-  --pink:      #FF2D78;
-  --pink-dark: #AA0040;
-  --pink-light:#FFE5EE;
-  --cyan:      #00C4B4;
-  --cyan-dark: #007A6A;
-  --cyan-light:#E0FBF8;
-  --coral:     #FF6B35;
-  --coral-dark:#AA3800;
-  --coral-light:#FFF0EA;
-  --blue:      #2B7FFF;
-  --blue-dark: #1A5FCC;
-  --blue-light: #E8F1FF;
-  --violet:    #7C3AFF;
-  --violet-dark:#4A14BB;
-  --violet-light:#F0EBFF;
-  --ink:       #0A0A0A;
-  --ink-60:    rgba(10,10,10,.6);
-  --ink-30:    rgba(10,10,10,.3);
-  --white:     #FFFFFF;
-  --cream:     #FFFEF5;
-  --gray-50:   #F7F7F5;
+  /* ── Brand gold/amber ──────────────────────────────── */
+  --gold:        #FF9900;
+  --gold-dark:   #CC7700;
+  --gold-light:  #FFDE9C;
+  --gold-mid:    #FFB92E;
+
+  /* ── Brand blue ────────────────────────────────────── */
+  --blue:        #0068DF;
+  --blue-dark:   #022D4C;
+  --blue-mid:    #3EB0FF;
+  --blue-light:  #9DD7FF;
+
+  /* ── Accent: cyan (light blue cards) ──────────────── */
+  --cyan:        #3EB0FF;
+  --cyan-dark:   #0068DF;
+  --cyan-light:  #D6EFFF;
+
+  /* ── Accent: coral/red ─────────────────────────────── */
+  --coral:       #EA2300;
+  --coral-dark:  #A81800;
+  --coral-light: #FFE8E0;
+
+  /* ── Accent: green ─────────────────────────────────── */
+  --green:       #22C42D;
+  --green-light: #D4F7D6;
+
+  /* ── Deep navy (hero bg, FinalCTA) ─────────────────── */
+  --violet:      #022D4C;
+  --violet-dark: #00111C;
+  --violet-light:#BFE0FF;
+
+  /* ── Pink (legacy — maps to coral-red) ─────────────── */
+  --pink:        #EA2300;
+  --pink-dark:   #A81800;
+  --pink-light:  #FFE8E0;
+
+  /* ── Neutral ───────────────────────────────────────── */
+  --ink:         #00111C;
+  --ink-60:      rgba(0,17,28,.6);
+  --ink-30:      rgba(0,17,28,.3);
+  --white:       #FFFFFF;
+  --cream:       #F5F9FF;
+  --gray-50:     #F0F4F8;
   --ff-display:'Fredoka', sans-serif;
   --ff-body:   'Space Grotesk', sans-serif;
 
@@ -45,7 +64,7 @@ body {
   font-family: var(--ff-body);
   background: var(--white);
   color: var(--ink);
-  overflow-x: hidden;
+  /* overflow-x must NOT be set on body — it breaks position:sticky */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
@@ -260,8 +279,8 @@ section { position: relative; overflow: hidden; }
   }
 }
 
-/* Prevent horizontal scroll on all sections */
-html, body { max-width: 100%; overflow-x: hidden; }
+/* Clip horizontal overflow per-section, not on body (body overflow breaks sticky) */
+section, header, footer { max-width: 100%; overflow-x: clip; }
 
 /* ── MOBILE GLOBAL POLISH ───────────────────────────────── */
 

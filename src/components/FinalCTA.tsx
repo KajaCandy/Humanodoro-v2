@@ -28,20 +28,6 @@ export default function FinalCTA() {
         overflow: "hidden",
       }}
     >
-      {/* Background glow blobs */}
-      <div aria-hidden="true" style={{
-        position: "absolute", top: "-20%", left: "-10%",
-        width: "55%", paddingBottom: "55%", borderRadius: "50%",
-        background: "radial-gradient(circle, rgba(255,255,255,.06) 0%, transparent 70%)",
-        pointerEvents: "none",
-      }} />
-      <div aria-hidden="true" style={{
-        position: "absolute", bottom: "-15%", right: "-8%",
-        width: "45%", paddingBottom: "45%", borderRadius: "50%",
-        background: "radial-gradient(circle, rgba(255,215,0,.08) 0%, transparent 70%)",
-        pointerEvents: "none",
-      }} />
-
       {/* Angel — left side */}
       <motion.div
         className="cta-character cta-character--angel"

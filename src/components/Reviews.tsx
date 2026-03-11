@@ -63,9 +63,9 @@ export default function Reviews() {
   const row2 = [...ALL_REVIEWS].reverse();
 
   return (
-    <section id="reviews" style={{ background: "var(--white)", padding: "var(--section-pad) 0", overflow: "hidden" }}>
+    <section id="reviews" style={{ background: "#fff", padding: "var(--section-pad) 0", overflow: "hidden", position: "relative" }}>
       {/* Header */}
-      <div className="reviews-header" style={{ textAlign: "center", marginBottom: "3.5rem", padding: "0 2rem" }}>
+      <div className="reviews-header" style={{ textAlign: "center", marginBottom: "3.5rem", padding: "0 2rem", position: "relative", zIndex: 1 }}>
 
         {/* Star rating summary — lead with this */}
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.625rem", marginBottom: "1.125rem" }}>
@@ -94,7 +94,7 @@ export default function Reviews() {
         <p style={{ color: "var(--ink-60)", fontSize: ".975rem", lineHeight: 1.6 }}>Real results from real people</p>
       </div>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem", position: "relative", zIndex: 1 }}>
         <MarqueeRow reviews={row1} direction="left" />
         <MarqueeRow reviews={row2} direction="right" />
       </div>

@@ -48,16 +48,22 @@ export default function Pricing() {
   const inView = useInView(ref, { once: true, margin: "-10%" });
 
   return (
-    <section ref={ref} id="pricing" style={{ background: "var(--white)", padding: "var(--section-pad) clamp(1.25rem, 5vw, 2rem)", position: "relative" }}>
+    <section ref={ref} id="pricing" style={{ background: "#fff", padding: "var(--section-pad) clamp(1.25rem, 5vw, 2rem)", position: "relative" }}>
+
+      {/* Dot-grid texture */}
+      <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(0,104,223,.06) 1.5px, transparent 1.5px)", backgroundSize: "28px 28px", pointerEvents: "none" }} />
+      {/* Accent glow blobs */}
+      <div aria-hidden="true" style={{ position: "absolute", top: "-10rem", right: "-8rem", width: "40rem", height: "40rem", borderRadius: "50%", background: "radial-gradient(circle, rgba(0,104,223,.08) 0%, transparent 65%)", pointerEvents: "none" }} />
+      <div aria-hidden="true" style={{ position: "absolute", bottom: "-8rem", left: "-6rem", width: "30rem", height: "30rem", borderRadius: "50%", background: "radial-gradient(circle, rgba(255,153,0,.07) 0%, transparent 65%)", pointerEvents: "none" }} />
 
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
-        style={{ textAlign: "center", marginBottom: "3.5rem" }}
+        style={{ textAlign: "center", marginBottom: "3.5rem", position: "relative", zIndex: 1 }}
       >
-        <span className="section-overline" style={{ marginBottom: ".875rem" }}>Pricing</span>
+        <span className="section-overline" style={{ marginBottom: ".875rem", color: "rgba(0,17,28,.5)" }}>Pricing</span>
         <h2
           className="display"
           style={{
@@ -67,7 +73,7 @@ export default function Pricing() {
         >
           Simple pricing.
         </h2>
-        <p style={{ fontSize: "1.1rem", color: "var(--ink-60)", marginTop: "0.625rem", lineHeight: 1.6 }}>
+        <p style={{ fontSize: "1.1rem", color: "rgba(0,17,28,.6)", marginTop: "0.625rem", lineHeight: 1.6 }}>
           No subscriptions. No catch.
         </p>
       </motion.div>
@@ -80,6 +86,8 @@ export default function Pricing() {
         gridTemplateColumns: "1fr 1fr",
         gap: "1.75rem",
         alignItems: "stretch",
+        position: "relative",
+        zIndex: 1,
       }} className="pricing-grid">
 
         {/* Card 1 — Free */}

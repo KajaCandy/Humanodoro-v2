@@ -1,10 +1,10 @@
 import Cursor from "@/components/Cursor";
 import Nav from "@/components/Nav";
-import Hero from "@/components/HeroV2"; // swap back to Hero.tsx to revert
+import HeroPadAnimation from "@/components/HeroPadAnimation";
 import StatMoment from "@/components/StatMoment";
 import PhoneDemo from "@/components/PhoneDemo";
-import Gamification from "@/components/Gamification";
 import PadReveal from "@/components/PadReveal";
+import Gamification from "@/components/Gamification";
 import Reviews from "@/components/Reviews";
 import Audiences from "@/components/Audiences";
 import Pricing from "@/components/Pricing";
@@ -16,7 +16,7 @@ export default function App() {
     <>
       <Cursor />
       <Nav />
-      <Hero />
+      <HeroPadAnimation />
       <StatMoment />
       <PhoneDemo />
       <PadReveal />

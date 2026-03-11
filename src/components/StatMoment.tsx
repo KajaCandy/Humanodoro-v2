@@ -41,6 +41,21 @@ export default function StatMoment() {
         padding: "var(--section-pad) clamp(1.25rem, 5vw, 2rem)",
       }}
     >
+      {/* Diagonal stripe SVG pattern */}
+      <svg aria-hidden="true" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }} xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="stat-stripes" patternUnits="userSpaceOnUse" width="40" height="40" patternTransform="rotate(45)">
+            <rect width="20" height="40" fill="rgba(0,0,0,.045)" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#stat-stripes)" />
+      </svg>
+
+      {/* Bold decorative corner circles */}
+      <div aria-hidden="true" style={{ position: "absolute", top: "-6rem", left: "-6rem", width: "28rem", height: "28rem", borderRadius: "50%", border: "3px solid rgba(0,0,0,.08)", pointerEvents: "none" }} />
+      <div aria-hidden="true" style={{ position: "absolute", top: "-4rem", left: "-4rem", width: "20rem", height: "20rem", borderRadius: "50%", border: "3px solid rgba(0,0,0,.06)", pointerEvents: "none" }} />
+      <div aria-hidden="true" style={{ position: "absolute", bottom: "-6rem", right: "-6rem", width: "28rem", height: "28rem", borderRadius: "50%", border: "3px solid rgba(0,0,0,.08)", pointerEvents: "none" }} />
+
       {/* Subtle large-type watermark for texture */}
       <div aria-hidden="true" style={{
         position: "absolute",

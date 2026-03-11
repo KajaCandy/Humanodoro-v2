@@ -1,17 +1,20 @@
 import { useRef, useState } from "react";
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 
-const STEP_BG = ["#FFFBEA", "#E0FBF8", "#F0EBFF", "#FFF0EA"];
+const STEP_BG = ["#0068DF", "#022D4C", "#00111C", "#3EB0FF"];
 
 const STEP_GLOW = [
-  "rgba(255, 215, 0, 0.28)",
-  "rgba(0, 196, 180, 0.28)",
-  "rgba(124, 58, 255, 0.28)",
-  "rgba(255, 107, 53, 0.28)",
+  "rgba(255, 215, 0, 0.45)",
+  "rgba(62, 176, 255, 0.35)",
+  "rgba(157, 215, 255, 0.3)",
+  "rgba(255, 153, 0, 0.3)",
 ];
 
-const STEP_ACCENT = ["var(--gold)", "var(--cyan)", "var(--violet)", "var(--coral)"];
-const STEP_ACCENT_DARK = ["var(--gold-dark)", "var(--cyan-dark)", "var(--violet-dark)", "var(--coral-dark)"];
+// false = ink text (light bg), true = white text (dark bg)
+const STEP_DARK = [false, true, true, true];
+
+const STEP_ACCENT = ["var(--gold)", "var(--cyan)", "#FFB92E", "#0068DF"];
+const STEP_ACCENT_DARK = ["var(--gold-dark)", "var(--cyan-dark)", "#D99A20", "#0057C2"];
 
 const STEPS = [
   {
@@ -101,7 +104,7 @@ export default function PhoneDemo() {
               transition={{ duration: 0.5 }}
               style={{ height: 3, width: 32, borderRadius: 99 }}
             />
-            <span className="section-overline">How It Works</span>
+            <span className="section-overline" style={{ color: STEP_DARK[step] ? "rgba(255,255,255,.6)" : undefined }}>How It Works</span>
             <motion.div
               animate={{ backgroundColor: STEP_ACCENT[step] }}
               transition={{ duration: 0.5 }}
@@ -114,14 +117,14 @@ export default function PhoneDemo() {
             style={{
               fontSize: "clamp(2rem, 4vw, 3.75rem)",
               fontWeight: 700,
-              color: "var(--ink)",
+              color: STEP_DARK[step] ? "#fff" : "var(--ink)",
               lineHeight: 1.02,
               letterSpacing: "-.02em",
             }}
           >
             See it{" "}
             <motion.span
-              animate={{ color: STEP_ACCENT_DARK[step] }}
+              animate={{ color: STEP_DARK[step] ? "var(--gold)" : STEP_ACCENT_DARK[step] }}
               transition={{ duration: 0.5 }}
               style={{ display: "inline" }}
             >
@@ -160,8 +163,11 @@ export default function PhoneDemo() {
                 {/* Node circle */}
                 <motion.div
                   animate={{
-                    background: i <= step ? STEP_ACCENT[i] : "rgba(10,10,10,.06)",
-                    boxShadow: i === step ? "3px 3px 0 var(--ink)" : "none",
+                    background: i <= step
+                      ? (step === 0 ? "var(--ink)" : STEP_ACCENT[i])
+                      : STEP_DARK[step] ? "rgba(255,255,255,.12)" : "rgba(10,10,10,.06)",
+                    boxShadow: i === step ? `3px 3px 0 ${STEP_DARK[step] ? "rgba(0,0,0,.4)" : "var(--ink)"}` : "none",
+                    borderColor: STEP_DARK[step] ? "rgba(255,255,255,.5)" : "var(--ink)",
                   }}
                   transition={{ duration: 0.35 }}
                   style={{
@@ -180,7 +186,7 @@ export default function PhoneDemo() {
                       fontFamily: "var(--ff-display)",
                       fontWeight: 700,
                       fontSize: ".84rem",
-                      color: i <= step ? "var(--ink)" : "rgba(10,10,10,.25)",
+                      color: i <= step ? (step === 0 ? "var(--gold)" : "var(--ink)") : STEP_DARK[step] ? "rgba(255,255,255,.4)" : "rgba(10,10,10,.25)",
                       lineHeight: 1,
                       userSelect: "none",
                     }}
@@ -193,7 +199,7 @@ export default function PhoneDemo() {
                 {i < STEPS.length - 1 && (
                   <motion.div
                     animate={{
-                      background: i < step ? "var(--ink)" : "rgba(10,10,10,.12)",
+                      background: i < step ? (STEP_DARK[step] ? "rgba(255,255,255,.5)" : "var(--ink)") : STEP_DARK[step] ? "rgba(255,255,255,.2)" : "rgba(10,10,10,.12)",
                     }}
                     transition={{ duration: 0.4 }}
                     style={{
@@ -217,7 +223,7 @@ export default function PhoneDemo() {
                   key={`wm-${step}`}
                   className="display"
                   initial={{ opacity: 0 }}
-                  animate={{ opacity: 0.055 }}
+                  animate={{ opacity: STEP_DARK[step] ? 0.1 : 0.055 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.5 }}
                   style={{
@@ -227,7 +233,7 @@ export default function PhoneDemo() {
                     transform: "translateY(-50%)",
                     fontSize: "clamp(8rem, 18vw, 16rem)",
                     fontWeight: 700,
-                    color: "var(--ink)",
+                    color: STEP_DARK[step] ? "#fff" : "var(--ink)",
                     lineHeight: 1,
                     userSelect: "none",
                     pointerEvents: "none",
@@ -260,7 +266,7 @@ export default function PhoneDemo() {
                     style={{
                       fontSize: "clamp(1.75rem, 3vw, 3rem)",
                       fontWeight: 700,
-                      color: "var(--ink)",
+                      color: STEP_DARK[step] ? "#fff" : "var(--ink)",
                       lineHeight: 1.08,
                       marginBottom: "1rem",
                       marginTop: ".75rem",
@@ -273,7 +279,7 @@ export default function PhoneDemo() {
                   <p
                     style={{
                       fontSize: "1.05rem",
-                      color: "var(--ink-60)",
+                      color: STEP_DARK[step] ? "rgba(255,255,255,.75)" : "var(--ink-60)",
                       lineHeight: 1.8,
                       maxWidth: 400,
                       marginBottom: "1.5rem",

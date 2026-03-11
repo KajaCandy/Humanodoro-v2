@@ -14,8 +14,8 @@ const LEGAL_LINKS = [
 export default function Footer() {
   return (
     <footer className="footer-outer" style={{
-      background: "var(--white)",
-      borderTop: "3px solid var(--ink)",
+      background: "#00111C",
+      borderTop: "6px solid var(--gold)",
       padding: "3.75rem 2rem 2.5rem",
     }}>
       <div style={{
@@ -36,13 +36,13 @@ export default function Footer() {
               fontFamily: "var(--ff-display)",
               fontSize: "1.3rem",
               fontWeight: 700,
-              color: "var(--ink)",
+              color: "#fff",
               letterSpacing: "-.01em",
             }}>
               Humanodoro
             </span>
           </a>
-          <p style={{ fontSize: ".9rem", color: "var(--ink-60)", lineHeight: 1.7, maxWidth: 260 }}>
+          <p style={{ fontSize: ".9rem", color: "rgba(255,255,255,.55)", lineHeight: 1.7, maxWidth: 260 }}>
             Turn your phone into a quest machine. Focus is a superpower. We made it a game.
           </p>
         </div>
@@ -52,7 +52,7 @@ export default function Footer() {
           <div style={{
             fontSize: ".84rem",
             fontWeight: 700,
-            color: "var(--ink-30)",
+            color: "rgba(255,255,255,.35)",
             letterSpacing: ".12em",
             textTransform: "uppercase",
             marginBottom: "1.125rem",
@@ -67,15 +67,15 @@ export default function Footer() {
                 href={l.href}
                 className="footer-link"
                 style={{
-                  color: "var(--ink-60)",
+                  color: "rgba(255,255,255,.65)",
                   fontSize: ".9rem",
                   textDecoration: "none",
                   fontWeight: 500,
                   transition: "color .15s",
                   lineHeight: 1.4,
                 }}
-                onMouseEnter={e => (e.currentTarget.style.color = "var(--gold-dark)")}
-                onMouseLeave={e => (e.currentTarget.style.color = "var(--ink-60)")}
+                onMouseEnter={e => (e.currentTarget.style.color = "var(--gold)")}
+                onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,.65)")}
               >
                 {l.label}
               </a>
@@ -109,7 +109,7 @@ export default function Footer() {
           <div style={{
             fontSize: ".84rem",
             fontWeight: 700,
-            color: "var(--ink-30)",
+            color: "rgba(255,255,255,.35)",
             letterSpacing: ".12em",
             textTransform: "uppercase",
             marginBottom: "1.125rem",
@@ -124,15 +124,15 @@ export default function Footer() {
                 href={l.href}
                 className="footer-link"
                 style={{
-                  color: "var(--ink-60)",
+                  color: "rgba(255,255,255,.65)",
                   fontSize: ".9rem",
                   textDecoration: "none",
                   fontWeight: 500,
                   transition: "color .15s",
                   lineHeight: 1.4,
                 }}
-                onMouseEnter={e => (e.currentTarget.style.color = "var(--gold-dark)")}
-                onMouseLeave={e => (e.currentTarget.style.color = "var(--ink-60)")}
+                onMouseEnter={e => (e.currentTarget.style.color = "var(--gold)")}
+                onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,.65)")}
               >
                 {l.label}
               </a>
@@ -146,17 +146,17 @@ export default function Footer() {
         maxWidth: 1100,
         margin: "0 auto",
         paddingTop: "1.5rem",
-        borderTop: "1.5px solid rgba(0,0,0,.07)",
+        borderTop: "1.5px solid rgba(255,255,255,.08)",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
         flexWrap: "wrap",
         gap: "1rem",
       }}>
-        <p style={{ fontSize: ".84rem", color: "var(--ink-30)", fontWeight: 500 }}>
+        <p style={{ fontSize: ".84rem", color: "rgba(255,255,255,.3)", fontWeight: 500 }}>
           © 2025 Humanodoro. All rights reserved.
         </p>
-        <p style={{ fontSize: ".84rem", color: "var(--ink-30)", fontWeight: 500 }}>
+        <p style={{ fontSize: ".84rem", color: "rgba(255,255,255,.3)", fontWeight: 500 }}>
           Made for people who want their time back.
         </p>
       </div>

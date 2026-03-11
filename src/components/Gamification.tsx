@@ -216,7 +216,7 @@ function GameScene() {
         position: "relative",
         height: "min(88vh, 800px)",
         overflow: "hidden",
-        background: "#A4DCFF",
+        background: "#9DD7FF",
       }}
     >
       {/* ── Tiling background — 5 SVG copies side by side ───────────────── */}
@@ -675,8 +675,14 @@ function FeatureZone() {
   ];
 
   return (
-    <div ref={ref} className="feature-zone" style={{ background: "var(--cream)", padding: "clamp(6rem, 12vw, 10rem) clamp(1.5rem, 4vw, 3rem) clamp(8rem, 16vw, 14rem)" }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+    <div ref={ref} className="feature-zone" style={{ background: "#00111C", padding: "clamp(6rem, 12vw, 10rem) clamp(1.5rem, 4vw, 3rem) clamp(8rem, 16vw, 14rem)", position: "relative" }}>
+      {/* Dot grid texture */}
+      <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(255,255,255,.07) 1.5px, transparent 1.5px)", backgroundSize: "28px 28px", pointerEvents: "none" }} />
+      {/* Decorative accent blobs */}
+      <div aria-hidden="true" style={{ position: "absolute", top: "-8rem", right: "-8rem", width: "36rem", height: "36rem", borderRadius: "50%", background: "radial-gradient(circle, rgba(0,104,223,.35) 0%, transparent 65%)", pointerEvents: "none" }} />
+      <div aria-hidden="true" style={{ position: "absolute", bottom: "-6rem", left: "-6rem", width: "28rem", height: "28rem", borderRadius: "50%", background: "radial-gradient(circle, rgba(255,153,0,.2) 0%, transparent 65%)", pointerEvents: "none" }} />
+
+      <div style={{ maxWidth: 1100, margin: "0 auto", position: "relative", zIndex: 1 }}>
 
         {/* Header */}
         <motion.div
@@ -685,10 +691,10 @@ function FeatureZone() {
           transition={{ duration: 0.6 }}
           style={{ textAlign: "center", marginBottom: "3.5rem" }}
         >
-          <h2 className="display" style={{ fontSize: "clamp(2.2rem, 4vw, 3.5rem)", fontWeight: 700, color: "var(--ink)", letterSpacing: "-.02em", lineHeight: 1.05, margin: 0 }}>
+          <h2 className="display" style={{ fontSize: "clamp(2.2rem, 4vw, 3.5rem)", fontWeight: 700, color: "#fff", letterSpacing: "-.02em", lineHeight: 1.05, margin: 0 }}>
             Your progress, gamified.
           </h2>
-          <p style={{ color: "var(--ink-60)", fontSize: "1rem", marginTop: ".875rem", lineHeight: 1.6 }}>
+          <p style={{ color: "rgba(255,255,255,.6)", fontSize: "1rem", marginTop: ".875rem", lineHeight: 1.6 }}>
             XP, streaks, quests, leaderboards. All in the free app.
           </p>
         </motion.div>
@@ -737,21 +743,21 @@ function FeatureZone() {
             initial={{ opacity: 0, y: 32 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.16 }}
-            style={{ background: "#fff", border: "3px solid var(--ink)", borderRadius: "1.375rem", boxShadow: "6px 6px 0 var(--ink)", padding: "2rem", display: "flex", flexDirection: "column" }}
+            style={{ background: "#022D4C", border: "3px solid rgba(255,255,255,.15)", borderRadius: "1.375rem", boxShadow: "6px 6px 0 rgba(0,0,0,.5)", padding: "2rem", display: "flex", flexDirection: "column" }}
           >
-            <div className="display" style={{ fontWeight: 700, fontSize: "1.2rem", color: "var(--ink)", marginBottom: ".2rem" }}>A new quest every day.</div>
-            <div style={{ fontSize: ".875rem", color: "var(--ink-60)", marginBottom: "1.5rem", lineHeight: 1.5 }}>Pick one, complete it, earn XP and keep your streak alive.</div>
+            <div className="display" style={{ fontWeight: 700, fontSize: "1.2rem", color: "#fff", marginBottom: ".2rem" }}>A new quest every day.</div>
+            <div style={{ fontSize: ".875rem", color: "rgba(255,255,255,.55)", marginBottom: "1.5rem", lineHeight: 1.5 }}>Pick one, complete it, earn XP and keep your streak alive.</div>
             <div style={{ display: "flex", flexDirection: "column", gap: 0, flex: 1, justifyContent: "center" }}>
               {QUESTS.map((q, i) => (
-                <div key={i} style={{ display: "flex", alignItems: "center", gap: "1rem", padding: ".9rem 0", borderBottom: i < QUESTS.length - 1 ? "2px solid rgba(0,0,0,.07)" : "none" }}>
-                  <div style={{ width: 22, height: 22, borderRadius: "50%", border: "2.5px solid var(--ink)", background: q.done ? "var(--ink)" : "transparent", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    {q.done && <span style={{ color: "var(--gold)", fontSize: ".75rem", fontWeight: 900 }}>✓</span>}
+                <div key={i} style={{ display: "flex", alignItems: "center", gap: "1rem", padding: ".9rem 0", borderBottom: i < QUESTS.length - 1 ? "2px solid rgba(255,255,255,.08)" : "none" }}>
+                  <div style={{ width: 22, height: 22, borderRadius: "50%", border: "2.5px solid rgba(255,255,255,.4)", background: q.done ? "var(--gold)" : "transparent", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    {q.done && <span style={{ color: "var(--ink)", fontSize: ".75rem", fontWeight: 900 }}>✓</span>}
                   </div>
                   <div style={{ flex: 1 }}>
-                    <div style={{ fontWeight: 700, fontSize: ".9rem", color: "var(--ink)", textDecoration: q.done ? "line-through" : "none", opacity: q.done ? 0.45 : 1 }}>{q.name}</div>
-                    <div style={{ fontSize: ".875rem", color: "var(--ink-30)", fontWeight: 500 }}>{q.dur}</div>
+                    <div style={{ fontWeight: 700, fontSize: ".9rem", color: "#fff", textDecoration: q.done ? "line-through" : "none", opacity: q.done ? 0.4 : 1 }}>{q.name}</div>
+                    <div style={{ fontSize: ".875rem", color: "rgba(255,255,255,.35)", fontWeight: 500 }}>{q.dur}</div>
                   </div>
-                  <div className="display" style={{ fontWeight: 700, fontSize: ".9rem", color: q.done ? "var(--ink-30)" : "var(--gold-dark)" }}>{q.xp}</div>
+                  <div className="display" style={{ fontWeight: 700, fontSize: ".9rem", color: q.done ? "rgba(255,255,255,.3)" : "var(--gold)" }}>{q.xp}</div>
                 </div>
               ))}
             </div>
@@ -875,7 +881,7 @@ export default function Gamification() {
   return (
     // overflow: visible so the neo-brutalist card box-shadows are not clipped
     // on either side. The GameScene handles its own overflow internally.
-    <section style={{ overflow: "visible", paddingTop: "clamp(4rem, 8vw, 7rem)" }}>
+    <section style={{ overflow: "visible", paddingTop: "clamp(4rem, 8vw, 7rem)", background: "var(--cream)" }}>
       <GameScene />
       <FeatureZone />
     </section>

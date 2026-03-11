@@ -132,22 +132,24 @@ function AudienceCell({ card }: { card: typeof CARDS[number] }) {
 
 export default function Audiences() {
   return (
-    <section style={{ background: "var(--white)", overflow: "hidden" }}>
+    <section style={{ background: "#F5F9FF", overflow: "hidden" }}>
       {/* Section header */}
-      <div className="audiences-header" style={{ background: "var(--white)", textAlign: "center", padding: "var(--section-pad) 2rem 3rem" }}>
-        <span className="section-overline" style={{ marginBottom: ".875rem" }}>Who It's For</span>
-        <h2
-          className="display"
-          style={{
-            fontSize: "clamp(2rem, 4vw, 3.75rem)", fontWeight: 700, color: "var(--ink)",
-            marginBottom: "0.875rem", letterSpacing: "-.02em", lineHeight: 1.05,
-          }}
-        >
-          Who wins with Humanodoro?
-        </h2>
-        <p style={{ color: "var(--ink-60)", fontSize: "1.05rem", maxWidth: 520, margin: "0 auto", lineHeight: 1.7 }}>
-          Whether you're chasing deadlines or just trying to be present. This was built for you.
-        </p>
+      <div className="audiences-header" style={{ background: "#F5F9FF", textAlign: "center", padding: "var(--section-pad) 2rem 3rem", position: "relative", overflow: "hidden" }}>
+        <div>
+          <span className="section-overline" style={{ marginBottom: ".875rem", color: "rgba(0,17,28,.5)" }}>Who It's For</span>
+          <h2
+            className="display"
+            style={{
+              fontSize: "clamp(2rem, 4vw, 3.75rem)", fontWeight: 700, color: "var(--ink)",
+              marginBottom: "0.875rem", letterSpacing: "-.02em", lineHeight: 1.05,
+            }}
+          >
+            Who wins with Humanodoro?
+          </h2>
+          <p style={{ color: "rgba(0,17,28,.65)", fontSize: "1.05rem", maxWidth: 520, margin: "0 auto", lineHeight: 1.7 }}>
+            Whether you're chasing deadlines or just trying to be present. This was built for you.
+          </p>
+        </div>
       </div>
 
       {/* 2×2 full-bleed grid */}
