@@ -185,7 +185,7 @@ export default function Pricing() {
       </div>
 
       <style>{`
-        @media (max-width: 600px) {
+        @media (max-width: 640px) {
           .pricing-grid {
             grid-template-columns: 1fr !important;
             gap: 1.25rem !important;

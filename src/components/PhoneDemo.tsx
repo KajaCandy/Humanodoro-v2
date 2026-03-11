@@ -415,7 +415,7 @@ export default function PhoneDemo() {
               style={{
                 position: "relative",
                 zIndex: 1,
-                width: "min(300px, 42vw)",
+                width: "clamp(180px, 55vw, 300px)",
                 aspectRatio: "9 / 19.5",
                 borderRadius: 36,
                 border: "3px solid var(--ink)",
@@ -521,6 +521,17 @@ export default function PhoneDemo() {
         @media (max-width: 480px) {
           .demo-grid {
             padding: 0 1.25rem 1.25rem !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .demo-step-list {
+            gap: 1.75rem !important;
+          }
+          .demo-step-list h3 {
+            font-size: clamp(1.1rem, 4.5vw, 1.4rem) !important;
+          }
+          .demo-step-list p {
+            font-size: .9rem !important;
           }
         }
       `}</style>

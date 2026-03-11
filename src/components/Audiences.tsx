@@ -163,7 +163,7 @@ export default function Audiences() {
       </div>
 
       <style>{`
-        @media (max-width: 700px) {
+        @media (max-width: 768px) {
           .audiences-grid { grid-template-columns: 1fr !important; }
           .audience-cell { min-height: 44vh !important; }
         }

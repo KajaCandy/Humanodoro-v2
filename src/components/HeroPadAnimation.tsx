@@ -236,7 +236,7 @@ export default function HeroPadAnimation() {
             top: 0,
             left: 0,
             bottom: 0,
-            width: "clamp(600px, 82vw, 1180px)",
+            width: "clamp(320px, 82vw, 1180px)",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -270,7 +270,7 @@ export default function HeroPadAnimation() {
 
               <h2
                 className="display"
-                style={{ fontSize: "clamp(3.5rem, 6vw, 7.5rem)", fontWeight: 700, lineHeight: 0.93, letterSpacing: "-0.01em", color: "#fff", marginBottom: "1.5rem" }}
+                style={{ fontSize: "clamp(2.8rem, 6vw, 7.5rem)", fontWeight: 700, lineHeight: 0.93, letterSpacing: "-0.01em", color: "#fff", marginBottom: "1.5rem" }}
               >
                 {SECTIONS[activeSection].heading}
               </h2>
@@ -344,6 +344,9 @@ export default function HeroPadAnimation() {
         }
         @media (max-width: 480px) {
           .hero-anim-text { padding: 1.25rem 1.25rem 4.5rem !important; }
+        }
+        @media (max-width: 400px) {
+          .hero-anim-text { padding: 1rem 1rem 4rem !important; }
         }
       `}</style>
     </div>

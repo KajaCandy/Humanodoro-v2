@@ -373,7 +373,7 @@ function GameScene() {
                   borderRadius: "1rem",
                   padding: "1rem 1.25rem",
                   boxShadow: "4px 4px 0 rgba(0,0,0,.2)",
-                  minWidth: 180,
+                  minWidth: 140,
                 }}
               >
                 <div
@@ -826,7 +826,7 @@ function FeatureZone() {
       </div>
 
       <style>{`
-        @media (max-width: 640px) {
+        @media (max-width: 520px) {
           .feature-bento { grid-template-columns: 1fr !important; }
           /* Guarantee symmetric horizontal padding at small sizes */
           .feature-zone {
@@ -867,6 +867,15 @@ function FeatureZone() {
           }
           .streak-day-circles { gap: .2rem !important; }
           .streak-day-circle  { width: 20px !important; height: 20px !important; }
+        }
+        @media (max-width: 400px) {
+          .hud-timer-card {
+            padding: .5rem .75rem !important;
+            min-width: 120px !important;
+          }
+          .hud-timer-value {
+            font-size: 1.75rem !important;
+          }
         }
         @keyframes floatSlow { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
         .float-slow { animation: floatSlow 3s ease-in-out infinite; }

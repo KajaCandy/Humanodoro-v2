@@ -143,7 +143,7 @@ export default function PadReveal() {
               flexDirection: "column",
               alignItems: "center",
               gap: ".375rem",
-              minWidth: 200,
+              minWidth: "min(200px, 100%)",
               textAlign: "center",
             }}
           >
@@ -362,7 +362,7 @@ export default function PadReveal() {
             grid-template-columns: 1fr 1fr !important;
           }
         }
-        @media (max-width: 520px) {
+        @media (max-width: 600px) {
           .zone3-grid {
             grid-template-columns: 1fr !important;
           }
