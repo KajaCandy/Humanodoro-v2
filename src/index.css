@@ -260,8 +260,9 @@ section { position: relative; overflow: hidden; }
   }
 }
 
-/* Prevent horizontal scroll on all sections */
-html, body { max-width: 100%; overflow-x: hidden; }
+/* Prevent horizontal scroll — clip per element, NOT on body (body overflow-x breaks position:sticky) */
+html, body { max-width: 100%; }
+section, header, footer { overflow-x: clip; }
 
 /* ── MOBILE GLOBAL POLISH ───────────────────────────────── */
 
