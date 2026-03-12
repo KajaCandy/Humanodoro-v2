@@ -15,7 +15,7 @@ function ReviewCard({ r }: { r: typeof ALL_REVIEWS[number] }) {
       border: "3px solid var(--ink)",
       borderRadius: "1.375rem",
       padding: "1.375rem 1.5rem",
-      minWidth: 380,
+      minWidth: 300,
       maxWidth: 420,
       flexShrink: 0,
       boxShadow: "4px 4px 0 var(--ink)",
